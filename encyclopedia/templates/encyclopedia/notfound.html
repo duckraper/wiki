@@ -1,0 +1,15 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Entry not found 
+{% endblock title %}
+
+{% block body %}
+    <h2> Entry not found </h2>
+    <p>
+        The entry: <strong>{{entry}}</strong> was not found or there was <br>
+        a typing error, try again, or try searching something else.<br>
+        If you want to add content for <strong>{{entry}}</strong> <a href="{% url 'create' %}">press here</a>.
+    </p>
+{% endblock body %}
+
