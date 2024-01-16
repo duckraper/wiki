@@ -1,0 +1,36 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Create entry
+{% endblock title %}
+
+{% block body %}
+    <h1>New entry</h1>
+    {% if exists %}
+        <h4>Error: Entry already exists</h4>
+        <p>
+            The entry you tried to create already exists.<br>
+            Please verify the title.
+        </p>
+
+        <form method="post">
+            {% csrf_token %}
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" name="title" placeholder="Input the title here." required><br>
+            <label for="content">Content:</label><br>
+            <textarea id="content" name="content" required>{{content}}</textarea><br>
+            <input type="submit" value="Save">
+        </form>
+    
+    {% else %}
+        <form method="post">
+            {% csrf_token %}
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" name="title" placeholder="Escribe el titulo aqui" required><br>
+            <label for="content">Content:</label><br>
+            <textarea id="content" name="content" required></textarea><br>
+            <input type="submit" value="Save">
+        </form>
+    {% endif %}
+{% endblock body %}
+

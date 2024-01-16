@@ -11,17 +11,14 @@
     <body>
         <div class="row">
             <div class="sidebar col-lg-2 col-md-3">
-                <h2>Wiki</h2>
+                <a href="{% url 'index' %}" id="header">
+                    <h2>Wiki</h2>
+                </a>
+                {% comment %} MODIFICADO {% endcomment %}
                 <form name="q" class="search" action={% url "index" %} method="post">
                     {% csrf_token %}
                     {{ form }}
                 </form>
-                {% comment %} <form>
-                    <input class="search" type="text" name="q" placeholder="Search Encyclopedia">
-                </form> {% endcomment %}
-                <div>
-                    <a href="{% url 'index' %}">Home</a>
-                </div>
                 <div>
                     <a href="{% url 'create' %}">Create New Page</a>
                 </div>
