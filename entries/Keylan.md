@@ -1,2 +1,3 @@
-#Keylan
-Es avilena, la pobre, nada mas que agregar, con eso ya tiene demasiado XDDDDDDD
+# Keylan
+
+Es avilena, y novia de [Carlos](/wiki/Carlos), la pobre, nada mas que agregar, con eso ya tiene demasiado.

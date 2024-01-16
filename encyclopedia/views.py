@@ -1,4 +1,3 @@
-import re
 import random as r
 
 from django.shortcuts import redirect, render, HttpResponse
@@ -47,7 +46,6 @@ def create_page(request) -> HttpResponse:
     if request.method == 'POST':
         title = request.POST['title']
         content = request.POST['content']
-
         if util.get_entry(title):
             return render(request, 'encyclopedia/create.html', {
                 'title': title,
@@ -55,7 +53,6 @@ def create_page(request) -> HttpResponse:
                 'exists': True,
                 'form': SearchForm()
             })
-        
         util.save_entry(title, content)
         return redirect('entry', entry=title)
     
@@ -63,7 +60,16 @@ def create_page(request) -> HttpResponse:
         'form': SearchForm(),
     })
 
-def edit_page(request):
-    return render(request, "encyclopedia/not_implemented.html", {
+
+def edit_page(request, entry):
+    content = util.get_entry(entry)
+    if request.method == 'POST':
+        content = request.POST['content']
+        util.save_entry(entry, content)
+        return redirect('entry', entry=entry)
+    
+    return render(request, "encyclopedia/edit.html", {
         'form': SearchForm(),
+        'entry': entry,
+        'content': content
     })

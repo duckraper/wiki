@@ -5,5 +5,11 @@
 {% endblock title%}
 
 {% block body %}
-    
-{%endblock title%}
+    <h1>Edit <strong>'{{entry}}'</strong></h1>
+    <form method='post'>
+        {% csrf_token %}
+        <label for='content'>Content:</label><br>
+        <textarea id='content' name='content' required>{{content}}</textarea><br>
+        <input type='submit' value='Save'>
+    </form>
+{%endblock%}

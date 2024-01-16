@@ -9,5 +9,5 @@ urlpatterns = [
     path('notfound/<str:entry>', views.notfound, name='notfound'),
     path('matches', views.matches, name='matches'),
     path('<str:entry>', views.show_entry, name='entry'),
-    path('<str>:entry/edit', views.edit_page, name='edit'),
+    path('<str:entry>/edit', views.edit_page, name='edit'),
 ]
