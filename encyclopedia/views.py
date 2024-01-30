@@ -4,13 +4,11 @@ from django.shortcuts import redirect, render, HttpResponse
 from encyclopedia.forms import SearchForm
 from . import util
 
-
 def index(request) -> HttpResponse:
     return render(request, "encyclopedia/index.html", {
         "entries": util.list_entries(),
         'form': SearchForm()
     })
-
 
 def show_entry(request, entry: str) -> HttpResponse:
     return render(request, "encyclopedia/entry.html", {
